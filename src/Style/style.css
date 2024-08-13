@@ -1,0 +1,9 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+thead th{
+    position: sticky;
+    top: 0;
+}

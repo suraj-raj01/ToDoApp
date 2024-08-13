@@ -1,35 +1,89 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useSelector,useDispatch } from "react-redux";
+import { addTask } from "./todoSlice";
+import Table from 'react-bootstrap/Table';
+import { useState } from "react";
+import { Container } from "react-bootstrap";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Navbar from 'react-bootstrap/Navbar';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-  return (
+const App = () =>{
+  const [task,setMytask] = useState("");
+  const mywork = useSelector((state)=>state.todo.task);
+  const dispatch = useDispatch();
+  console.log(mywork);
+  let sno=0;
+  const ans = mywork.map((key)=>{
+    sno++;
+    return(
+      <>
+      <tr>
+        <td>{sno}</td>
+        <td>{key.work}</td>
+      </tr>
+      </>
+    )
+  })
+
+  return(
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Container>
+    <div style={
+      {
+        display:'flex',
+        gap:'20px',
+        alignItems:'center',
+        justifyContent:'center',
+        height:'15vh'
+      }
+    }>
+    <h1 style={{fontWeight:'bold'}}>ToDoApp</h1>
+    <Navbar>
+      
+      <Form inline>
+        <Row>
+          <Col xs="auto">
+            <Form.Control
+              type="text"
+              placeholder="Add your Task"
+              className=" mr-sm-2"
+              value={task} 
+              onChange={(e)=>{setMytask(e.target.value)}}
+            />
+          </Col>
+          <Col xs="auto">
+            <Button onClick={()=>{dispatch(addTask({id:Date.now(),work:task}))}} variant="success">Submit</Button>
+          </Col>
+        </Row>
+      </Form>
+    </Navbar>
+    </div>
+    {/* Enter your Task <input type="text" value={task} onChange={(e)=>{setMytask(e.target.value)}}/> */}
+    {/* <button onClick={()=>{dispatch(addTask({id:Date.now(),work:task}))}}>Add Task</button> */}
+    
+    <div style={
+      {
+        height:'75vh',
+        width:'100%',
+        border:'1px solid',
+        overflowY:'scroll',
+      }
+    }>
+    <Table responsive>
+      <thead>
+        <tr>
+          <th>Sno</th>
+          <th>Your Task</th>
+        </tr>
+        {ans}
+      </thead>
+      </Table>
+    </div>
+    </Container>
     </>
   )
 }
-
-export default App
+export default App;
