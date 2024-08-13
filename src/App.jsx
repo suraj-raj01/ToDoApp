@@ -23,6 +23,7 @@ const App = () =>{
       <tr>
         <td>{sno}</td>
         <td>{key.work}</td>
+        <td>{<button onClick={()=>{}}>delete</button>}</td>
       </tr>
       </>
     )
@@ -72,11 +73,12 @@ const App = () =>{
         overflowY:'scroll',
       }
     }>
-    <Table responsive>
+    <Table striped bordered hover variant="dark">
       <thead>
         <tr>
           <th>Sno</th>
           <th>Your Task</th>
+          <th>Delete Record</th>
         </tr>
         {ans}
       </thead>
