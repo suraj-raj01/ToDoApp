@@ -42,6 +42,7 @@ const App = () => {
     toast("Data Saved!!!");
   }
 
+
   let sno = 0;
   const ans = mywork.map((key) => {
     sno++;
@@ -87,6 +88,7 @@ const App = () => {
                 style={{ maxHeight: '300px' }}
                 navbarScroll
               ></Nav>
+              
               <Form className="d-flex">
                 <Form.Control
                   type="search"
@@ -104,15 +106,20 @@ const App = () => {
                     <Button onClick={editSave} >Edit Save</Button>
                 }
               </Form>
+              <div id="icons">
+                {/* <img onClick={()=>{mode}} src="https://static-00.iconduck.com/assets.00/dark-theme-icon-512x512-185rlszm.png" alt="mode" height='20px' width='20px'/> */}
+                <a href="https://www.linkedin.com/in/suraj-kumar-1965b0296/" target="_blank"><img src="https://blakeoliver.com.au/wp-content/uploads/2023/06/vecteezy_linkedin-logo-png-linkedin-icon-transparent-png_18930585_835.png" height='35px' width='35px' />
+                </a>
+                <a href="https://github.com/suraj-raj01/ToDoApp" target="_blank"><img src="https://pngimg.com/d/github_PNG65.png" height='35px' width='90px' />
+                </a>
+              </div>
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        {/* Enter your Task <input type="text" value={task} onChange={(e)=>{setMytask(e.target.value)}}/> */}
-        {/* <Button onClick={()=>{dispatch(addTask({id:Date.now(),work:task}))}}>Add Task</Button> */}
         <br />
         <div style={
           {
-            borderRadius:'10px',
+            borderRadius: '10px',
             margin: 'auto',
             height: '75vh',
             width: '98%',

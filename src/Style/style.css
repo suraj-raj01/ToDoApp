@@ -27,3 +27,14 @@ Button{
         width: 90px;
     }
 }
+
+.mode{
+    background-color: black;
+}
+
+#icons{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
