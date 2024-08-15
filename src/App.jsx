@@ -8,7 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
-
+import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
   const [task, setMytask] = useState("");
@@ -19,22 +19,27 @@ const App = () => {
 
   const delTask = (id) => {
     dispatch(deleteRec(id));
+    toast("Delete Successfull!!");
   }
   const taskComp = (id) => {
     dispatch(taskComplete(id))
+    toast("Task Complete!!");
   }
   const taskUncomp = (id) => {
     dispatch(taskUncomplete(id))
+    toast("Task Uncomplete!!");
   }
   const dataEdit = (id, data) => {
     setMytask(data);
     setEdbtn(false);
+    toast("Edit Your Task!!");
     setEdID(id);
   }
   const editSave = () => {
     dispatch(editSaveData({ id: edId, data: task }))
     setEdbtn(true)
     setMytask("")
+    toast("Data Saved!!!");
   }
 
   let sno = 0;
@@ -143,6 +148,7 @@ const App = () => {
           everything is reserved by ©todoapp.com
         </div>
       </Container>
+      <ToastContainer />
     </>
   )
 }
