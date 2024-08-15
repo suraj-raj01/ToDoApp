@@ -1,0 +1,29 @@
+
+Button{
+    width: 130px;
+    border: none;
+    background-color: blue;
+    color: white;
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+
+#head th{
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    background-color: white;
+    color: black;
+}
+
+@media(max-width:430px){
+    Table th{
+        font-size: 12px;
+    }
+    Table td{
+        font-size: 12px;
+    }
+    Table Button{
+        width: 90px;
+    }
+}
