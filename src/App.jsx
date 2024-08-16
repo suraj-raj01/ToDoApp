@@ -19,7 +19,7 @@ const App = () => {
 
   const delTask = (id) => {
     dispatch(deleteRec(id));
-    toast("Delete Successfull!!");
+    toast.warning("Record Deleted!!");
   }
   const taskComp = (id) => {
     dispatch(taskComplete(id))
@@ -34,8 +34,9 @@ const App = () => {
   }
   const editSave = () => {
     dispatch(editSaveData({ id: edId, data: task }))
-    setEdbtn(true)
-    setMytask(" ")
+    setEdbtn(true);
+    setEdID(id);
+    setMytask(data);
     toast("Data Saved!!!");
   }
 
@@ -45,7 +46,7 @@ const App = () => {
     sno++;
     return (
       <>
-        <tr style={{ textAlign: 'center' }}>
+        <tr id="data">
           <td>{sno} </td>
           <td>
             {key.status ? <span style={{ color: "red", textDecoration: "line-through" }}> {key.data}</span> : key.data}
@@ -86,12 +87,20 @@ const App = () => {
                 navbarScroll
               ></Nav>
 
+              <div id="icons">
+                {/* <img onClick={()=>{mode}} src="https://static-00.iconduck.com/assets.00/dark-theme-icon-512x512-185rlszm.png" alt="mode" height='20px' width='20px'/> */}
+                <a href="https://www.linkedin.com/in/suraj-kumar-1965b0296/" target="_blank"><img src="https://blakeoliver.com.au/wp-content/uploads/2023/06/vecteezy_linkedin-logo-png-linkedin-icon-transparent-png_18930585_835.png" height='35px' width='35px' />
+                </a>
+                <a href="https://github.com/suraj-raj01/ToDoApp" target="_blank"><img src="https://pngimg.com/d/github_PNG65.png" height='35px' width='90px' />
+                </a>
+              </div>
               <Form className="d-flex">
                 <Form.Control
                   type="search"
                   placeholder="Add Your Task"
                   className="me-2"
                   aria-label="Search"
+                  width='200px'
                   onChange={(e) => { setMytask(e.target.value) }}
                 />
                 {/* <Button variant="outline-success">Search</Button> */}
@@ -103,13 +112,7 @@ const App = () => {
                     <Button onClick={editSave} variant="info">Edit Save</Button>
                 }
               </Form>
-              <div id="icons">
-                {/* <img onClick={()=>{mode}} src="https://static-00.iconduck.com/assets.00/dark-theme-icon-512x512-185rlszm.png" alt="mode" height='20px' width='20px'/> */}
-                <a href="https://www.linkedin.com/in/suraj-kumar-1965b0296/" target="_blank"><img src="https://blakeoliver.com.au/wp-content/uploads/2023/06/vecteezy_linkedin-logo-png-linkedin-icon-transparent-png_18930585_835.png" height='35px' width='35px' />
-                </a>
-                <a href="https://github.com/suraj-raj01/ToDoApp" target="_blank"><img src="https://pngimg.com/d/github_PNG65.png" height='35px' width='90px' />
-                </a>
-              </div>
+              
             </Navbar.Collapse>
           </Container>
         </Navbar>
@@ -120,7 +123,8 @@ const App = () => {
             margin: 'auto',
             height: '75vh',
             width: '98%',
-            border: '1px solid',
+            border: 'none',
+            boxShadow:'0px 0px 3px',
             overflowY: 'scroll',
           }
         }>
@@ -145,10 +149,11 @@ const App = () => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            fontWeight:'bold'
           }
         }>
-          Made by @surajkumar <br />
+          Made by @SURAJKUMAR <br />
           everything is reserved by ©todoapp.com
         </div>
       </Container>

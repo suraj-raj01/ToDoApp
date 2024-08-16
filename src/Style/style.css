@@ -1,4 +1,9 @@
-
+body{
+    background-image: url('https://www.pngmart.com/files/13/Pattern-Transparent-Background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 Button{
     width: 130px;
     border: none;
@@ -15,6 +20,9 @@ Button{
     background-color: white;
     color: black;
 }
+table img{
+    cursor: pointer;
+}
 
 @media(max-width:430px){
     Table th{
@@ -26,16 +34,23 @@ Button{
     Table img{
         width: 20px;
         height: 20px;
+        cursor: pointer;
+    }
+    #icons{
+        padding: 0px 0px 10px 0px;
     }
 }
 
-.mode{
-    background-color: black;
+td{
+    font-weight: bold;
 }
 
 #icons{
-    width: 200px;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: start;
+}
+#data td{
+    text-align: center;
+    background-color: transparent;
 }
