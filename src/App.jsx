@@ -27,7 +27,7 @@ const App = () => {
   }
   const taskUncomp = (id) => {
     dispatch(taskUncomplete(id))
-    toast("Task Uncomplete!!");
+    toast("Task Incomplete!!");
   }
   const dataEdit = (id, data) => {
     setMytask(data);
@@ -54,21 +54,21 @@ const App = () => {
             {key.status ? <span style={{ color: "red", textDecoration: "line-through" }}> {key.data}</span> : key.data}
           </td>
 
-          <td> <Button onClick={() => { delTask(key.id) }}>Delete</Button> </td>
+          <td> <img src="https://cdn-icons-png.freepik.com/512/1345/1345874.png" height='30px' width='30px' onClick={() => { delTask(key.id) }}/></td>
 
           <td>
 
             {key.status ? (
 
-              <Button onClick={() => { taskUncomp(key.id) }}> Uncomplete</Button>
+              <img src="https://i.pinimg.com/originals/d0/17/47/d01747c4285afa4e7a6e8656c9cd60cb.png" width='25' height='25' onClick={() => { taskUncomp(key.id) }}/>
 
             ) : (
-              <Button onClick={() => { taskComp(key.id) }}>Complete</Button>
+              <img src="https://www.nicepng.com/png/full/28-288509_check-clipart-yes-complete-clipart.png" width='25' height='25' onClick={() => { taskComp(key.id) }}/>
             )}
 
           </td>
           <td>
-            <Button onClick={() => { dataEdit(key.id, key.data) }}> Edit Data</Button>
+            <img src="https://cdn-icons-png.flaticon.com/512/32/32355.png" height='25'width='25' onClick={() => { dataEdit(key.id, key.data) }}/>
           </td>
         </tr>
       </>
@@ -133,7 +133,7 @@ const App = () => {
                 <th>S No.</th>
                 <th>Your Tasks</th>
                 <th>Delete Records</th>
-                <th>Complete/Uncompelete</th>
+                <th>Complete/Incompelete</th>
                 <th>Edit Data</th>
               </tr>
               {ans}

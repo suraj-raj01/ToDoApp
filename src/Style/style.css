@@ -23,8 +23,9 @@ Button{
     Table td{
         font-size: 12px;
     }
-    Table Button{
-        width: 90px;
+    Table img{
+        width: 20px;
+        height: 20px;
     }
 }
 
