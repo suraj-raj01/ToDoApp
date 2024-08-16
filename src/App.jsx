@@ -23,22 +23,19 @@ const App = () => {
   }
   const taskComp = (id) => {
     dispatch(taskComplete(id))
-    toast("Task Complete!!");
   }
   const taskUncomp = (id) => {
     dispatch(taskUncomplete(id))
-    toast("Task Incomplete!!");
   }
-  const dataEdit = (id, data) => {
+  const dataEdit = (id,data) => {
     setMytask(data);
     setEdbtn(false);
-    toast("Edit Your Task!!");
     setEdID(id);
   }
   const editSave = () => {
     dispatch(editSaveData({ id: edId, data: task }))
     setEdbtn(true)
-    setMytask("")
+    setMytask(" ")
     toast("Data Saved!!!");
   }
 
@@ -54,21 +51,21 @@ const App = () => {
             {key.status ? <span style={{ color: "red", textDecoration: "line-through" }}> {key.data}</span> : key.data}
           </td>
 
-          <td> <img src="https://cdn-icons-png.freepik.com/512/1345/1345874.png" height='30px' width='30px' onClick={() => { delTask(key.id) }}/></td>
+          <td> <img src="https://cdn-icons-png.freepik.com/512/1345/1345874.png" height='25px' width='25px' onClick={() => { delTask(key.id) }} /></td>
 
           <td>
 
             {key.status ? (
 
-              <img src="https://i.pinimg.com/originals/d0/17/47/d01747c4285afa4e7a6e8656c9cd60cb.png" width='25' height='25' onClick={() => { taskUncomp(key.id) }}/>
+              <img src="https://i.pinimg.com/originals/d0/17/47/d01747c4285afa4e7a6e8656c9cd60cb.png" width='25' height='25' onClick={() => { taskUncomp(key.id) }} />
 
             ) : (
-              <img src="https://www.nicepng.com/png/full/28-288509_check-clipart-yes-complete-clipart.png" width='25' height='25' onClick={() => { taskComp(key.id) }}/>
+              <img src="https://www.nicepng.com/png/full/28-288509_check-clipart-yes-complete-clipart.png" width='25' height='25' onClick={() => { taskComp(key.id) }} />
             )}
 
           </td>
           <td>
-            <img src="https://cdn-icons-png.flaticon.com/512/32/32355.png" height='25'width='25' onClick={() => { dataEdit(key.id, key.data) }}/>
+            <img src="https://cdn-icons-png.flaticon.com/512/32/32355.png" height='25' width='25' onClick={() => { dataEdit(key.id, key.data) }} />
           </td>
         </tr>
       </>
@@ -88,7 +85,7 @@ const App = () => {
                 style={{ maxHeight: '300px' }}
                 navbarScroll
               ></Nav>
-              
+
               <Form className="d-flex">
                 <Form.Control
                   type="search"
@@ -100,10 +97,10 @@ const App = () => {
                 {/* <Button variant="outline-success">Search</Button> */}
                 {
                   edBtn ? (
-                    <Button onClick={() => { dispatch(addTask({ id: Date.now(), data: task, status: false })) }} >Add Task</Button>
+                    <Button onClick={() => { dispatch(addTask({ id:Date.now(), data:task, status: false })) }} >Add Task</Button>
                   )
                     :
-                    <Button onClick={editSave} >Edit Save</Button>
+                    <Button onClick={editSave} variant="info">Edit Save</Button>
                 }
               </Form>
               <div id="icons">
