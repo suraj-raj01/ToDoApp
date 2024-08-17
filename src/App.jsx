@@ -35,7 +35,7 @@ const App = () => {
   const editSave = () => {
     dispatch(editSaveData({ id: edId, data: task }))
     setEdbtn(true);
-    setEdID(id);
+    setEdID(edId);
     setMytask(data);
     toast("Data Saved!!!");
   }
@@ -121,7 +121,7 @@ const App = () => {
           {
             borderRadius: '10px',
             margin: 'auto',
-            height: '75vh',
+            height:'78vh',
             width: '98%',
             border: 'none',
             boxShadow:'0px 0px 3px',
@@ -133,8 +133,8 @@ const App = () => {
               <tr style={{ textAlign: 'center' }} id="head">
                 <th>S No.</th>
                 <th>Your Tasks</th>
-                <th>Delete Records</th>
-                <th>Complete/Incompelete</th>
+                <th>Delete Task</th>
+                <th>Complete / Incompelete</th>
                 <th>Edit Data</th>
               </tr>
               {ans}
